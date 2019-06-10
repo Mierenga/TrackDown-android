@@ -2,19 +2,190 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+    <ScrollView
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="413dp"
+            android:layout_height="730dp"
+            tools:context=".MainActivity"
+            tools:layout_editor_absoluteX="-2dp"
+            tools:layout_editor_absoluteY="38dp">
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/buttonSend"
+                android:layout_width="0dp"
+                android:layout_height="51dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="14dp"
+                android:backgroundTint="@android:color/white"
+                android:scaleType="fitStart"
+                android:text="No Route To Send"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageSend"
+                app:layout_constraintTop_toBottomOf="@+id/optionRecordWifiScan" />
+
+            <ImageView
+                android:id="@+id/imageSend"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageWifi"
+                app:srcCompat="@drawable/menu_send" />
+
+            <CheckBox
+                android:id="@+id/optionRecordWifiScan"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:checked="false"
+                android:text="Track WiFi Results"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/imageWifi"
+                app:layout_constraintTop_toBottomOf="@+id/buttonTrack" />
+
+            <View
+                android:id="@+id/divider1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintTop_toBottomOf="@id/buttonSend"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:layout_marginTop="16dp"
+                />
+
+            <Button
+                android:id="@+id/buttonTrack"
+                android:layout_width="0dp"
+                android:layout_height="51dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="@color/colorGreen"
+                android:drawableEnd="@android:drawable/ic_media_play"
+                android:scaleType="fitStart"
+                android:text="Start Tracking"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/imageTrack"
+                app:layout_constraintTop_toBottomOf="@+id/mapView" />
+
+            <ImageView
+                android:id="@+id/imageTrack"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mapView"
+                app:srcCompat="@drawable/menu_route" />
+
+            <ImageView
+                android:id="@+id/imageWifi"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageTrack"
+                app:srcCompat="@drawable/menu_wifi" />
+
+            <ImageView
+                android:id="@+id/imageSettings"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider1"
+                app:srcCompat="@drawable/menu_gear" />
+
+            <com.riyagayasen.easyaccordion.AccordionView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:visibility="visible"
+                app:heading="Settings"
+                app:isAnimated="true"
+                app:isExpanded="false"
+                app:isPartitioned="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageSettings"
+                app:layout_constraintTop_toBottomOf="@+id/divider1">
+
+                <CheckBox
+                    android:id="@+id/optionFollowOnMap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/optionShowWifi"
+                    android:checked="true"
+                    android:text="Auto-center Map"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/optionShowWifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/optionShowLocation"
+                    android:checked="true"
+                    android:text="Show WiFi"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/optionShowRadius"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/optionFollowOnMap"
+                    android:checked="true"
+                    android:text="Show Accuracy Radius"
+                    android:textSize="20sp" />
+
+
+            </com.riyagayasen.easyaccordion.AccordionView>
+
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>
